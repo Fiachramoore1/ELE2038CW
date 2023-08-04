@@ -1,0 +1,13 @@
+Kp=1;Ti=0.001;Td=[0.1:5:20];
+for i=1:length(Td)
+Gc=tf(Kp*[Td(i)*Ti,Ti,1],[Kp*Ti,0]);
+G=tf([1],[0.462,10.4,1884]);
+Gb=feedback(Gc*G,1);
+step(Gb)
+hold on
+end
+
+
+% xlim([0,10])
+% ylim([-0.1,1.1])
+
